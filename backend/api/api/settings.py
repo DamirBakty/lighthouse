@@ -50,6 +50,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8000',
     'http://localhost:8080',
     'http://amanita.ru:3000',
+    'http://95.217.20.33:3000',
 ]
 
 
@@ -78,9 +79,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'lighthouse',
-        'USER': 'postgres',
-        'PASSWORD': 'qwerty',
-        'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD': 'root123',
+        'HOST': '95.217.20.33',
         'PORT': '5432',
         'CONN_MAX_AGE': 3600
     }
@@ -138,7 +139,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ru-RU'
 
-TIME_ZONE = 'Asia/Novosibirsk'
+TIME_ZONE = 'Asia/Almaty'
 
 USE_I18N = True
 
