@@ -1,6 +1,5 @@
 FROM node:lts-alpine
 
-MAINTAINER dmitiry.filyushin@ya.ru
 
 WORKDIR /app/
 
