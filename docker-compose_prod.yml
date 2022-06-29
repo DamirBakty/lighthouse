@@ -12,12 +12,12 @@ services:
       dockerfile: ./docker/python/Dockerfile
     environment:
     - PYTHONUNBUFFERED=1
-    - POSTGRES_PASSWORD=lighthouse
-    - POSTGRES_USER=lighthouse
+    - POSTGRES_PASSWORD=root123
+    - POSTGRES_USER=root
     - POSTGRES_DB=lighthouse
     - POSTGRES_HOST=postgres
     - DJANGO_SETTINGS_MODULE=api.production
-    - HTTP_FRONTEND_URL=http://lighthouse.kz
+    - HTTP_FRONTEND_URL=http://95.217.20.33
     - TIME_ZONE=Asia/Almaty
     volumes:
       - ./static_files:/static_files
@@ -33,8 +33,8 @@ services:
     volumes:
       - ./pgsql:/var/lib/postgresql/data
     environment:
-      POSTGRES_PASSWORD: lighthouse
-      POSTGRES_USER: lighthouse
+      POSTGRES_PASSWORD: root123
+      POSTGRES_USER: root
       POSTGRES_DB: lighthouse
     ports:
       - 5432:5432
@@ -63,7 +63,7 @@ services:
     depends_on:
       - djangoweb
     environment:
-    - REACT_APP_HTTP_API_URL=http://lighthouse.kz:8000
+    - REACT_APP_HTTP_API_URL=http://95.217.20.33:8000
     ports:
       - 80:3000
     stdin_open: true

@@ -1,5 +1,4 @@
 FROM python:3.6
-MAINTAINER dmitiry.filyushin@ya.ru
 
 COPY ./backend/api /lighthouse
 
