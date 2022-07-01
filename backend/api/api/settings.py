@@ -22,7 +22,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'corsheaders',
-    'lighthouse.apps.LighthouseConfig',
+    'lighthouse',
+    'rest_framework'
 ]
 
 MIDDLEWARE = [
@@ -40,10 +41,12 @@ ROOT_URLCONF = 'api.urls'
 
 CORS_ALLOW_CREDENTIALS = True
 
-FRONTEND_URL = os.getenv('HTTP_FRONTEND_URL')
+FRONTEND_URL = os.getenv('http://95.217.20.33:3000')
 
 if FRONTEND_URL == '':
     print('Empty FRONTEND_URL!')
+else:
+    print(FRONTEND_URL)
 
 CORS_ORIGIN_WHITELIST = [
     'http://localhost:3000',
@@ -51,6 +54,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://localhost:8080',
     'http://amanita.ru:3000',
     'http://95.217.20.33:3000',
+    'http://95.217.20.33:8000',
 ]
 
 
@@ -90,7 +94,7 @@ DATABASES = {
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.memcached.MemcachedCache',
-        'LOCATION': 'localhost:11211',
+        'LOCATION': '95.217.20.33:11211',
     }
 }
 

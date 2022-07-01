@@ -13,7 +13,7 @@ class NotificationView(views.APIView):
     @staticmethod
     def get(request):
         notifications = []
-
+        print("Hello world")
         # Проверка изменения пароля
         settings = UserSettings.objects.get(user=request.user)
         life_password = AppSetup.objects.get(code='LIVE_PASSWORD').int_value
