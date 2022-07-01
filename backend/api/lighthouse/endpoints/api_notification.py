@@ -16,7 +16,12 @@ class NotificationView(views.APIView):
         print("Hello world")
         # Проверка изменения пароля
         settings = UserSettings.objects.get(user=request.user)
-        life_password = AppSetup.objects.get(code='LIVE_PASSWORD').int_value
+        try:
+            life_password = AppSetup.objects.get(code='LIVE_PASSWORD').int_value
+        except:
+            print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
+            life_password = 10
+
         if (date.today() - settings.last_password) > timedelta(days=life_password):
             notifications.append({'message': 'Давно не меняли пароль.', 'link': '/profile'})
 
