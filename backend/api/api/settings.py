@@ -23,7 +23,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'corsheaders',
     'lighthouse',
-    'rest_framework'
+    'rest_framework',
+    'rest_framework_swagger'
 ]
 
 MIDDLEWARE = [
@@ -154,6 +155,9 @@ USE_TZ = False
 STATIC_URL = '/static/'
 
 REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': (
+           'rest_framework.permissions.AllowAny',
+        ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
@@ -161,6 +165,14 @@ REST_FRAMEWORK = {
     'EXCEPTION_HANDLER': 'lighthouse.endpoints.api_errors.custom_exception_handler'
 }
 
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'basic': {
+            'type': 'basic'
+        }
+    },
+    'resource_access_handler': 'app.views.resource_access_handler'
+}
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': datetime.timedelta(hours=64),
     'REFRESH_TOKEN_LIFETIME': datetime.timedelta(days=7),

@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 from rest_framework_simplejwt.views import token_refresh
 from rest_framework import routers
 import lighthouse.endpoints.api_domain as api_domain_views
@@ -11,6 +12,7 @@ import lighthouse.endpoints.api_formula as api_formula_views
 import lighthouse.endpoints.api_auth as api_token_views
 import lighthouse.endpoints.api_setup as api_setup_views
 import lighthouse.endpoints.api_notification as api_ntf_views
+from rest_framework.schemas import get_schema_view
 
 router = routers.DefaultRouter()
 
@@ -75,7 +77,14 @@ urlpatterns = [
     path('profile/', api_user_views.ProfileView.as_view()),
     path('change_password/', api_user_views.UserPassView.as_view()),
     path('notification/', api_ntf_views.NotificationView.as_view())
-
 ]
 urlpatterns += auth_urls
 urlpatterns += store_urls
+urlpatterns += [
+    path('api_schema/', get_schema_view(title='API Schema',
+                                        description='Guide for the REST API',
+                                        version="3.0.2",
+                                        public=True), name='api_schema'),
+    path('swagger_ui/', TemplateView.as_view(template_name='docs.html', extra_context={'schema_url': 'api_schema'}),
+         name='swagger-ui'),
+]
