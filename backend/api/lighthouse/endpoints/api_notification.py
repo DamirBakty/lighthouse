@@ -13,13 +13,11 @@ class NotificationView(views.APIView):
     @staticmethod
     def get(request):
         notifications = []
-        print(request.addr)
         # Проверка изменения пароля
         settings = UserSettings.objects.get(user=request.user)
         try:
             life_password = AppSetup.objects.get(code='LIVE_PASSWORD').int_value
         except:
-            print("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA")
             life_password = 10
 
         if (date.today() - settings.last_password) > timedelta(days=life_password):

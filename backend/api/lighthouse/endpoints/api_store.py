@@ -1,6 +1,6 @@
 from datetime import datetime
 from builtins import staticmethod
-from django.db.models import Sum, Q, Exists, OuterRef
+from django.db.models import Sum, Q, Exists, OuterRef,Variance
 from rest_framework import viewsets, views, status, filters
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.exceptions import ValidationError
@@ -213,10 +213,11 @@ class RawStoreViewSet(views.APIView):
             queryset = queryset.filter(id_material__name__icontains=search)
         queryset = queryset \
             .values('id_material__id', 'id_material__name', 'id_tare__name', 'id_tare__id_unit__name', 'id_tare__v') \
-            .annotate(total=RoundFunc(Sum('oper_value'))) \
+            .annotate(total=(RoundFunc(Sum('oper_value',filter=Q(oper_type=0))))-RoundFunc(Sum('oper_value',filter=Q(oper_type=1)))) \
             .order_by('id_material__name')
         serializer = StoreRawSerializer(queryset, many=True)
         return Response(status=status.HTTP_200_OK, data=serializer.data)
+
 
 
 class StoreByMaterialViewSet(views.APIView):
