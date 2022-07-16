@@ -171,7 +171,7 @@ const StoreJournalToolbar = (props: IStoreJournalToolbarProps) => {
                     xs={12}
                 >
                     <div className={classes.buttonGroup}>
-                        <span className={classes.spacer}/>
+                        {/*<span className={classes.spacer}/>*/}
                         <Button color="primary" variant="contained" onClick={onAddItemButtonHandler}>Приход
                             материалов</Button>
                         <Button color="primary" variant="contained" onClick={onOutItemButtonHandler}>Расход

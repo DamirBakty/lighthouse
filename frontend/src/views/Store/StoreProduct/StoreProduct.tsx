@@ -34,7 +34,7 @@ const StoreProduct = () => {
     }, [dispatch]);
 
     function onClickTableItem(id: number){
-        history.push(`#`);
+        history.push(`/store/journal/product-material/${id}`);
     }
 
     async function onFindHandler(findText: string){
