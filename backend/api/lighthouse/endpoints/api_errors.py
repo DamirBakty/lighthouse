@@ -7,6 +7,8 @@ from rest_framework.views import exception_handler
 API_ERROR_POST_TURNOVER = 'Ошибка сервера. Не удалось сохранить данные складской операции.'
 API_ERROR_CARD_IS_CLOSE = 'Производственная карта выполнена, изменения невозможны'
 API_ERROR_SAVE_DATA = 'Ошибка при сохранении данных: {}'
+API_ERROR_OUT_OF_DATE = 'Указано некорректное время'
+API_ERROR_OUT_OF_STOCK = 'Товар на расход превышает количества на складе'
 API_ERROR_CARD_NOT_IN_WORK = 'Производственная карта не в работе!'
 API_ERROR_CARD_NO_SET_FINISH_PROCESS = 'Не указана дата окончания производственного процесса'
 API_ERROR_CARD_TEAM_ERROR = 'Некорректное состояние смен (не все смены закрыты у сотрудников)'

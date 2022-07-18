@@ -19,7 +19,7 @@ from lighthouse.appmodels.manufacture import MATERIAL_PRODUCT_ID, MATERIAL_RAW_I
 from rest_framework.decorators import action
 from rest_framework.response import Response
 from .api_utils import RoundFunc
-from .api_errors import API_ERROR_POST_TURNOVER
+from .api_errors import API_ERROR_POST_TURNOVER, API_ERROR_OUT_OF_DATE,API_ERROR_OUT_OF_STOCK
 
 
 class MaterialViewSet(viewsets.ModelViewSet):
@@ -96,10 +96,36 @@ class StoreTurnoverMaterial(views.APIView):
 
     @staticmethod
     def post(request):
-        print(request.data)
         serializer = StoreArrivalSerializer(data=request.data)
+        today = datetime.today().strftime('%Y-%m-%d')
+        day = request.data['date']
+        print(request.data)
+
         if serializer.is_valid():
             try:
+                if day > today:
+                    return Response(data={
+                        'message': API_ERROR_OUT_OF_DATE
+                    }, status=status.HTTP_400_BAD_REQUEST)
+                if request.data['id_operation'] == 1:
+                    for i in request.data['items']:
+                        data = Store.objects \
+                            .filter(id_material__id_type__id=MATERIAL_RAW_ID) \
+                            .filter(id_material__name__icontains='вода') \
+                            .filter(is_delete=False) \
+                            .filter(id_tare_id=i['tare']) \
+                            .filter(oper_date__lte=datetime.today()) \
+                            .values('id_tare__v') \
+                            .annotate(total=(Coalesce(Sum('oper_value', filter=Q(oper_type=0)), 0)) - Coalesce(
+                            Sum('oper_value', filter=Q(oper_type=1)), 0)) \
+                            .order_by('id_material__name')
+                        if data[0]['total'] - i['count'] < 0:
+                            return Response(data={
+                                'message': API_ERROR_OUT_OF_STOCK,
+                                'detail': i['material']
+                            },status=status.HTTP_400_BAD_REQUEST)
+
+
                 serializer.save()
             except Exception as e:
                 print(str(e))
@@ -108,6 +134,7 @@ class StoreTurnoverMaterial(views.APIView):
                     'detail': str(e)
                 }
                 return Response(data=data, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         else:
             return Response(data=serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -215,11 +242,11 @@ class RawStoreViewSet(views.APIView):
             queryset = queryset.filter(id_material__name__icontains=search)
         queryset = queryset \
             .values('id_material__id', 'id_material__name', 'id_tare__name', 'id_tare__id_unit__name', 'id_tare__v') \
-            .annotate(total=(Coalesce(Sum('oper_value',filter=Q(oper_type=0)),0))-Coalesce(Sum('oper_value',filter=Q(oper_type=1)),0)) \
+            .annotate(total=(Coalesce(Sum('oper_value', filter=Q(oper_type=0)), 0)) - Coalesce(
+            Sum('oper_value', filter=Q(oper_type=1)), 0)) \
             .order_by('id_material__name')
         serializer = StoreRawSerializer(queryset, many=True)
         return Response(status=status.HTTP_200_OK, data=serializer.data)
-
 
 
 class StoreByMaterialViewSet(views.APIView):
@@ -297,7 +324,8 @@ class StockStoreViewSet(views.APIView):
             queryset = queryset.filter(id_material__name__icontains=search)
         queryset = queryset \
             .values('id_material__id', 'id_material__name', 'id_tare__name', 'id_tare__id_unit__name', 'id_tare__v') \
-            .annotate(total=(Coalesce(Sum('oper_value',filter=Q(oper_type=0)),0))-Coalesce(Sum('oper_value',filter=Q(oper_type=1)),0)) \
+            .annotate(total=(Coalesce(Sum('oper_value', filter=Q(oper_type=0)), 0)) - Coalesce(
+            Sum('oper_value', filter=Q(oper_type=1)), 0)) \
             .order_by('id_material__name')
         serializer = StoreProductSerializer(queryset, many=True)
         return Response(status=status.HTTP_200_OK, data=serializer.data)
