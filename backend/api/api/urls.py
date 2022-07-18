@@ -13,7 +13,8 @@ import lighthouse.endpoints.api_auth as api_token_views
 import lighthouse.endpoints.api_setup as api_setup_views
 import lighthouse.endpoints.api_notification as api_ntf_views
 from rest_framework.schemas import get_schema_view
-
+from django.conf import settings
+from django.conf.urls.static import static
 router = routers.DefaultRouter()
 
 # Склад и рецептура
@@ -87,4 +88,4 @@ urlpatterns += [
                                         public=True), name='api_schema'),
     path('swagger_ui/', TemplateView.as_view(template_name='docs.html', extra_context={'schema_url': 'api_schema'}),
          name='swagger-ui'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
