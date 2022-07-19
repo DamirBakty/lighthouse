@@ -223,6 +223,7 @@ const StoreJournalToolbar = (props: IStoreJournalToolbarProps) => {
                             <MenuItem value={NO_SELECT_VALUE}><em>не указано</em></MenuItem>
                             <MenuItem value={1}>Сырьё</MenuItem>
                             <MenuItem value={2}>Продукт</MenuItem>
+                            <MenuItem value={3}>ТМЦ</MenuItem>
                         </Select>
                     </FormControl>
                 </Grid>

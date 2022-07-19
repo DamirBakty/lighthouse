@@ -293,7 +293,7 @@ const StoreNewItems = (props: IStoreNewItemsProps) => {
                         <Grid container spacing={1}>
                             <Grid item xs={11}>
                                 <Typography variant={"h5"}>
-                                    Список материалов на приход
+                                    Список материалов на списание
                                 </Typography>
                             </Grid>
                             <Grid item xs={1}>
