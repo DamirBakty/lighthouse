@@ -266,7 +266,6 @@ class PriceListViewSet(viewsets.ModelViewSet):
                 .order_by('id_product__name')
             for item in queryset:
                 p = PriceList.objects \
-                    .filter(id_employee__isnull=True) \
                     .filter(id_product_id=item['id_product__id']) \
                     .filter(id_tare_id=item['id_tare__id']) \
                     .filter(on_date=item['on_date']) \
