@@ -260,7 +260,6 @@ class PriceListViewSet(viewsets.ModelViewSet):
     def get_queryset(self):
         if self.action == 'list':
             queryset = PriceList.objects \
-                .filter(id_employee__isnull=True) \
                 .values('id_product__id', 'id_product__name', 'id_tare__id', 'id_tare__name', 'id_tare__v') \
                 .annotate(on_date=Max('on_date')) \
                 .order_by('id_product__name')
