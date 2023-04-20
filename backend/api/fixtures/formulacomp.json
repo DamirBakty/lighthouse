@@ -1,0 +1,310 @@
+[
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 13,
+  "fields": {
+    "id_formula": 1,
+    "id_raw": 16,
+    "concentration": 66.0,
+    "substance": 55.0,
+    "raw_value": 3.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 14,
+  "fields": {
+    "id_formula": 1,
+    "id_raw": 3,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 10.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 15,
+  "fields": {
+    "id_formula": 1,
+    "id_raw": 4,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 11.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 19,
+  "fields": {
+    "id_formula": 3,
+    "id_raw": 10,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 545.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 20,
+  "fields": {
+    "id_formula": 3,
+    "id_raw": 2,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 212.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 21,
+  "fields": {
+    "id_formula": 3,
+    "id_raw": 3,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 1245.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 22,
+  "fields": {
+    "id_formula": 3,
+    "id_raw": 4,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 125.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 36,
+  "fields": {
+    "id_formula": 31,
+    "id_raw": 18,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 200.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 37,
+  "fields": {
+    "id_formula": 31,
+    "id_raw": 24,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 300.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 38,
+  "fields": {
+    "id_formula": 31,
+    "id_raw": 25,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 400.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 39,
+  "fields": {
+    "id_formula": 33,
+    "id_raw": 2,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 45.3432
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 41,
+  "fields": {
+    "id_formula": 34,
+    "id_raw": 2,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 45.3432
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 42,
+  "fields": {
+    "id_formula": 34,
+    "id_raw": 3,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 89.0934
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 43,
+  "fields": {
+    "id_formula": 1,
+    "id_raw": 11,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 12.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 44,
+  "fields": {
+    "id_formula": 33,
+    "id_raw": 23,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 555.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 47,
+  "fields": {
+    "id_formula": 5,
+    "id_raw": 7,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 88.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 49,
+  "fields": {
+    "id_formula": 6,
+    "id_raw": 16,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 100.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 50,
+  "fields": {
+    "id_formula": 6,
+    "id_raw": 3,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 200.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 51,
+  "fields": {
+    "id_formula": 6,
+    "id_raw": 4,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 300.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 52,
+  "fields": {
+    "id_formula": 6,
+    "id_raw": 11,
+    "concentration": 0.0,
+    "substance": 0.0,
+    "raw_value": 400.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 57,
+  "fields": {
+    "id_formula": 39,
+    "id_raw": 4,
+    "concentration": 100.0,
+    "substance": 0.0,
+    "raw_value": 975.2
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 58,
+  "fields": {
+    "id_formula": 39,
+    "id_raw": 109,
+    "concentration": 82.0,
+    "substance": 420.0,
+    "raw_value": 512.2
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 59,
+  "fields": {
+    "id_formula": 39,
+    "id_raw": 110,
+    "concentration": 95.0,
+    "substance": 50.0,
+    "raw_value": 52.6
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 60,
+  "fields": {
+    "id_formula": 40,
+    "id_raw": 4,
+    "concentration": 100.0,
+    "substance": 0.0,
+    "raw_value": 975.2
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 61,
+  "fields": {
+    "id_formula": 40,
+    "id_raw": 109,
+    "concentration": 82.0,
+    "substance": 420.0,
+    "raw_value": 512.2
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 62,
+  "fields": {
+    "id_formula": 40,
+    "id_raw": 110,
+    "concentration": 95.0,
+    "substance": 50.0,
+    "raw_value": 52.6
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 63,
+  "fields": {
+    "id_formula": 41,
+    "id_raw": 120,
+    "concentration": 90.0,
+    "substance": 540.0,
+    "raw_value": 600.0
+  }
+},
+{
+  "model": "lighthouse.formulacomp",
+  "pk": 64,
+  "fields": {
+    "id_formula": 41,
+    "id_raw": 121,
+    "concentration": 100.0,
+    "substance": 0.0,
+    "raw_value": 400.0
+  }
+}
+]
